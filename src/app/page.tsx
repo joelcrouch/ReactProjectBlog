@@ -1,22 +1,43 @@
+"use client";
+
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import StarfieldBackground from "@/components/StarfieldBackground";
 
 export default function Home() {
+  // Move the hooks inside the component function
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   return (
     <div className="relative min-h-screen font-[family-name:var(--font-geist-sans)]">
       {/* Top wave bar */}
       <div className="absolute top-0 left-0 w-full h-[300px] wave-rows z-0" />
-
+      {/* Starfield between the waves */}
+      <div className="absolute top-[300px] left-0 w-full bottom-[300px] bg-[#0a0a0a] z-0 overflow-hidden">
+        {/* Only render starfield after component is mounted (client-side) */}
+        {isMounted && (
+          <StarfieldBackground
+            starColor="#ffee4b"
+            starCount={150}
+            speed={0.3}
+          />
+        )}
+      </div>
       {/* Bottom wave bar */}
       <div className="absolute bottom-0 left-0 w-full h-[300px] wave-rows z-0" />
-
       {/* Main content */}
-      <main className="relative z-10 px-8 pt-[300px] pb-[300px] max-w-4xl mx-auto">
+      <main className="relative z-10 px-8 pt-[300px] pb-[300px] max-w-4xl mx-auto text-white">
         {/* Shifted content wrapper */}
         <div className="relative sm:left-[-200px] flex flex-col gap-8 sm:items-start">
-          <h1 className="text-5xl font-bold text-left">codeRunCookies</h1>
-
-          <ol className="list-inside list-decimal text-sm/6 text-left font-[family-name:var(--font-geist-mono)]">
-            <li className="mb-2 tracking-[-.01em]">
+          <h1 className="text-5xl font-bold text-left text-white">
+            codeRunCookies
+          </h1>
+          <ol className="list-inside list-decimal text-sm/6 text-left font-[family-name:var(--font-geist-mono)] text-white">
+            <li className="mb-2 tracking-[-.01em] text-white">
               You can read
               <span className="space-x-2">
                 <a
@@ -42,11 +63,10 @@ export default function Home() {
                 .
               </span>
             </li>
-            <li className="tracking-[-.01em]">
+            <li className="tracking-[-.01em] text-white">
               Save and see your changes instantly.
             </li>
           </ol>
-
           <div className="flex gap-4 items-start flex-col sm:flex-row mb-8">
             <a
               className="rounded-full border border-solid border-[#d22020] transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
