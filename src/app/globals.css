@@ -1,4 +1,410 @@
+/* Import Tailwind CSS */
 @import "tailwindcss";
+
+/* Define the Thor Ragnarok color palette in custom CSS variables */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --pocketStormGreen: #36bd00;
+  --pocketStormPurple: #5d2d7e;
+  --pocketStormYellow: #ffee4b;
+  --pocketStormTeal: #17dbcc;
+  --pocketStormRed: #d22020;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.wave-rows {
+  background: repeating-linear-gradient(
+    0deg,
+    #36bd00,
+    #36bd00 60px,
+    #5d2d7e 60px,
+    #5d2d7e 120px,
+    #ffee4b 120px,
+    #ffee4b 180px,
+    #17dbcc 180px,
+    #17dbcc 240px,
+    #d22020 240px,
+    #d22020 300px
+  );
+}
+
+.wave-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: repeating-linear-gradient(
+    0deg,
+    #36bd00,
+    #36bd00 60px,
+    #5d2d7e 60px,
+    #5d2d7e 120px,
+    #ffee4b 120px,
+    #ffee4b 180px,
+    #17dbcc 180px,
+    #17dbcc 240px,
+    #d22020 240px,
+    #d22020 300px
+  );
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  padding: 300px 0;
+  box-sizing: border-box;
+}
+
+/* Wavelike Rows Background (Top Wave) */
+.wave-background-top {
+  position: absolute;
+  top: 0; /* Position the wave at the top */
+  left: 0;
+  width: 100%;
+  height: 150px; /* Height of the wave */
+  background: linear-gradient(
+        180deg,
+        var(--pocketStormGreen) 25%,
+        transparent 25%
+      )
+      0% 0%,
+    linear-gradient(180deg, var(--pocketStormPurple) 25%, transparent 25%) 0%
+      25%,
+    linear-gradient(180deg, var(--pocketStormYellow) 25%, transparent 25%) 0%
+      50%,
+    linear-gradient(180deg, var(--pocketStormTeal) 25%, transparent 25%) 0% 75%,
+    linear-gradient(180deg, var(--pocketStormRed) 25%, transparent 25%) 0% 100%;
+  background-size: 100% 100px; /* Adjust the wave height */
+  background-repeat: repeat-y;
+  animation: wave 3s ease-in-out infinite;
+}
+
+/* Wavelike Rows Background (Bottom Wave) */
+.wave-background-bottom {
+  position: absolute;
+  bottom: 0; /* Position the wave at the bottom */
+  left: 0;
+  width: 100%;
+  height: 150px; /* Height of the wave */
+  background: linear-gradient(
+        180deg,
+        var(--pocketStormGreen) 25%,
+        transparent 25%
+      )
+      0% 0%,
+    linear-gradient(180deg, var(--pocketStormPurple) 25%, transparent 25%) 0%
+      25%,
+    linear-gradient(180deg, var(--pocketStormYellow) 25%, transparent 25%) 0%
+      50%,
+    linear-gradient(180deg, var(--pocketStormTeal) 25%, transparent 25%) 0% 75%,
+    linear-gradient(180deg, var(--pocketStormRed) 25%, transparent 25%) 0% 100%;
+  background-size: 100% 100px; /* Adjust the wave height */
+  background-repeat: repeat-y;
+  animation: wave 3s ease-in-out infinite;
+}
+
+/* Wavelike Rows Background */
+/* Wavelike Rows Background */
+/* .wave-background {
+  position: absolute;
+  top: 0; /* Place it at the top of the container */
+/* left: 0;
+  width: 100%;
+  height: 150px; 
+  background: linear-gradient(
+        180deg,
+        var(--pocketStormGreen) 25%,
+        transparent 25%
+      )
+      0% 0%,
+    linear-gradient(180deg, var(--pocketStormPurple) 25%, transparent 25%) 0%
+      25%,
+    linear-gradient(180deg, var(--pocketStormYellow) 25%, transparent 25%) 0%
+      50%,
+    linear-gradient(180deg, var(--pocketStormTeal) 25%, transparent 25%) 0% 75%,
+    linear-gradient(180deg, var(--pocketStormRed) 25%, transparent 25%) 0% 100%;
+  background-size: 100% 100px; 
+  animation: wave 3s ease-in-out infinite;
+  background-repeat: repeat-y;
+} */
+
+/* .wavy-background {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+        180deg,
+        var(--pocketStormGreen) 25%,
+        transparent 25%
+      )
+      0% 0%,
+    linear-gradient(180deg, var(--pocketStormPurple) 25%, transparent 25%) 0%
+      25%,
+    linear-gradient(180deg, var(--pocketStormYellow) 25%, transparent 25%) 0%
+      50%,
+    linear-gradient(180deg, var(--pocketStormTeal) 25%, transparent 25%) 0% 75%,
+    linear-gradient(180deg, var(--pocketStormRed) 25%, transparent 25%) 0% 100%;
+  background-size: 100% 250px; /* Increased height of each wave */
+/* animation: wave 3s ease-in-out infinite;
+  background-repeat: repeat-y;
+} */
+
+/* Keyframe to animate the wavy effect */
+/* Keyframe to animate the wavy effect */
+@keyframes wave {
+  0% {
+    background-position: 0% 0%, 0% 25%, 0% 50%, 0% 75%, 0% 100%;
+  }
+  50% {
+    background-position: 100% 0%, 100% 25%, 100% 50%, 100% 75%, 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%, 0% 25%, 0% 50%, 0% 75%, 0% 100%;
+  }
+}
+
+/* Optional: Define any other global styles */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-sans);
+  font-weight: bold;
+}
+
+code {
+  font-family: var(--font-mono);
+  background-color: var(--pocketStormGreen);
+  color: white;
+}
+
+a {
+  color: var(--pocketStormTeal);
+  text-decoration: none;
+}
+
+/* Other necessary global styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: var(--background);
+}
+
+.title-section {
+  position: relative; /* This will allow the wave to be above it */
+  z-index: 1;
+  padding-top: 160px; /* Add space to the top so the wave doesn't overlap the title */
+}
+
+ul,
+ol {
+  padding-left: 20px;
+}
+
+/* @import "tailwindcss"; */
+
+/* Define the Thor Ragnarok color palette in custom CSS variables */
+/* :root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --pocketStormGreen: #36bd00;
+  --pocketStormPurple: #5d2d7e;
+  --pocketStormYellow: #ffee4b;
+  --pocketStormTeal: #17dbcc;
+  --pocketStormRed: #d22020;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+} */
+
+/* Define the ripple animation */
+/* @keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+} */
+
+/* Apply the ripple effect to elements */
+/* .ripple-background {
+  position: relative;
+  overflow: hidden;
+} */
+
+/* Import Tailwind CSS */
+/* @import "tailwindcss"; */
+
+/* Define the Thor Ragnarok color palette in custom CSS variables */
+/* :root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --pocketStormGreen: #36bd00;
+  --pocketStormPurple: #5d2d7e;
+  --pocketStormYellow: #ffee4b;
+  --pocketStormTeal: #17dbcc;
+  --pocketStormRed: #d22020;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+} */
+
+/* Define the ripple animation */
+/* @keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+} */
+
+/* Apply the ripple effect to elements */
+/* .ripple-background {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-background::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: linear-gradient(
+    45deg,
+    #36bd00,
+    #5d2d7e,
+    #ffee4b,
+    #17dbcc,
+    #d22020
+  );
+  background-size: 400% 400%;
+  animation: ripple 5s infinite, gradientAnimation 5s ease infinite;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: -1;
+} */
+
+/* Animation to smoothly shift the gradient colors */
+/* @keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+} */
+
+/* .ripple-background::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: linear-gradient(
+    45deg,
+    #36bd00,
+    #5d2d7e,
+    #ffee4b,
+    #17dbcc,
+    #d22020
+  );
+  background-size: 400% 400%;
+  animation: ripple 3s infinite, gradientAnimation 5s ease infinite;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: -1;
+}
+
+/* Animation to smoothly shift the gradient colors */
+/* @keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+} */
+
+/* @import "tailwindcss";
 
 :root {
   --background: #ffffff;
@@ -23,4 +429,4 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
-}
+} */
