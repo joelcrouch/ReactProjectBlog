@@ -1,20 +1,29 @@
 // src/app/blog/[slug]/page.tsx
-import { blogPosts } from "@/lib/blogPosts";
-import { notFound } from "next/navigation";
+import { getPostBySlug } from "@/lib/blog";
+import { getAllPosts } from "@/lib/blog";
 
 type Props = {
   params: { slug: string };
 };
 
-export default function PostPage({ params }: Props) {
-  const post = blogPosts.find((p) => p.slug === params.slug);
-  if (!post) return notFound();
+export default async function BlogPostPage({ params }: Props) {
+  const post = await getPostBySlug(params.slug);
 
   return (
     <div className="p-8 max-w-3xl mx-auto">
-      <h1 className="text-4xl font-bold mb-2">{post.title}</h1>
-      <p className="text-gray-500 mb-4">{post.date}</p>
-      <div className="prose">{post.content}</div>
+      <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
+      <div
+        className="prose"
+        dangerouslySetInnerHTML={{ __html: post.contentHtml }}
+      />
     </div>
   );
+}
+
+export async function generateStaticParams() {
+  const posts = getAllPosts();
+
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
 }

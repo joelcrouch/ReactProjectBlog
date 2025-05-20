@@ -1,33 +1,22 @@
-// // src/app/blog/page.tsx
-// export default function BlogPage() {
-//   return (
-//     <div className="p-8 max-w-3xl mx-auto">
-//       <h1 className="text-4xl font-bold mb-4">Blog</h1>
-//       <p className="text-lg text-gray-700">
-//         Welcome to the blog. Soon, you will find posts about my thoughts,
-//         how-tos, and experiences.
-//       </p>
-//     </div>
-//   );
-// }
-
-// src/app/blog/page.tsx
 import Link from "next/link";
-import { blogPosts } from "@/lib/blogPosts";
+import { getAllPosts } from "@/lib/blog";
 
 export default function BlogPage() {
+  const posts = getAllPosts(); // Not async because it reads from disk only
+
   return (
     <div className="p-8 max-w-3xl mx-auto">
       <h1 className="text-4xl font-bold mb-4">Blog</h1>
-      <ul className="space-y-4">
-        {blogPosts.map((post) => (
-          <li key={post.slug}>
-            <Link href={`/blog/${post.slug}`}>
-              <h2 className="text-2xl font-semibold hover:underline">
-                {post.title}
-              </h2>
-              <p className="text-gray-600">{post.summary}</p>
+      <ul>
+        {posts.map((post) => (
+          <li key={post.slug} className="mb-4">
+            <Link
+              href={`/blog/${post.slug}`}
+              className="text-xl text-blue-600 underline"
+            >
+              {post.title}
             </Link>
+            <p className="text-sm text-gray-600">{post.summary}</p>
           </li>
         ))}
       </ul>
