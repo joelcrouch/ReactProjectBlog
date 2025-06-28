@@ -1,73 +1,74 @@
-// src/app/blog/[slug]/page.tsx
-// import { blogPosts } from "@/lib/blogPosts";
 // import { notFound } from "next/navigation";
+// import { getPostBySlug, getAllPostSlugs } from "@/lib/blogPosts";
+// //import { Metadata } from "next";
 
-// type Props = {
-//   params: { slug: string };
-// };
-
-// export default function PostPage({ params }: Props) {
-//   const post = blogPosts.find((p) => p.slug === params.slug);
-//   if (!post) return notFound();
-
-//   return (
-//     <div className="p-8 max-w-3xl mx-auto">
-//       <h1 className="text-4xl font-bold mb-2">{post.title}</h1>
-//       <p className="text-gray-500 mb-4">{post.date}</p>
-//       <div className="prose">{post.content}</div>
-//     </div>
-//   );
-// }
-
-// import { notFound } from "next/navigation";
-// import { getPostBySlug, getAllPostSlugs, Post } from "@/lib/blogPosts";
-
-// type Props = {
-//   params: { slug: string };
-// };
+// // If you're using metadata generation (optional)
+// // export async function generateStaticParams(): Promise<{ slug: string }[]> {
+// //   const slugs = await getAllPostSlugs();
+// //   return slugs.map((slug) => ({ slug }));
+// // }
 
 // export async function generateStaticParams() {
-//   const slugs = getAllPostSlugs();
-//   return slugs.map((slug) => ({ slug }));
+//   const slugs = await getAllPostSlugs();
+//   return slugs.map(slug => ({ slug }));
 // }
 
-// export default async function PostPage({ params }: Props) {
-//   const post: Post = await getPostBySlug(params.slug);
-//   if (!post) return notFound();
+// // This is the correct type to match Next.js expectations
+// // type PageProps = {
+// //   params: {
+// //     slug: string;
+// //   };
+// // };
+
+// export default async function PostPage({ params }: { params: { slug: string } }) {
+//   params = await props.params;
+//   const post = await getPostBySlug(params.slug);
+//   if (!post) return notFound();;
+
+// // export default async function PostPage({ params }: PageProps) {
+// //   const post = await getPostBySlug(params.slug);
+// //   if (!post) return notFound();
 
 //   return (
 //     <div className="p-8 max-w-3xl mx-auto">
 //       <h1 className="text-4xl font-bold mb-2">{post.title}</h1>
-//       <p className="text-gray-500 mb-4">{post.date}</p>
-//       <div className="prose" dangerouslySetInnerHTML={{ __html: post.content }}></div>
+//       <p className="text-gray-500 mb-4">
+//         {new Date(post.date).toLocaleDateString("en-US", {
+//           year: "numeric",
+//           month: "long",
+//           day: "numeric",
+//         })}
+//       </p>
+//       <div
+//         className="prose"
+//         dangerouslySetInnerHTML={{ __html: post.content }}
+//       />
 //     </div>
 //   );
 // }
 
 
 import { notFound } from "next/navigation";
-import { getPostBySlug, getAllPostSlugs, Post } from "@/lib/blogPosts";
+import { getPostBySlug, getAllPostSlugs } from "@/lib/blogPosts";
 
 type Props = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 export const dynamicParams = true;
 
-// Generates static paths for all posts at build time
 export async function generateStaticParams() {
   const slugs = await getAllPostSlugs();
   return slugs.map((slug) => ({ slug }));
 }
 
-// Renders a specific blog post
-export default async function PostPage({ params }: Props) {
-  const awaitedParams = await params;
-  const post = await getPostBySlug(awaitedParams.slug);
-  if (!post) return notFound();
+export default async function PostPage(props: Props) {
+  const params = await props.params;
+  const post = await getPostBySlug(params.slug);
 
-  // const post: Post | null = await getPostBySlug(params.slug);
-  // if (!post) return notFound();
+  if (!post) {
+    return notFound();
+  }
 
   return (
     <div className="p-8 max-w-3xl mx-auto">
@@ -79,11 +80,10 @@ export default async function PostPage({ params }: Props) {
           day: "numeric",
         })}
       </p>
-      <div
+      <article
         className="prose"
         dangerouslySetInnerHTML={{ __html: post.content }}
       />
     </div>
   );
 }
-

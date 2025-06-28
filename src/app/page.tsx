@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import StarfieldBackground from "@/components/StarfieldBackground";
+import Link from "next/link";
 
 export default function Home() {
   // Move the hooks inside the component function
@@ -40,26 +41,26 @@ export default function Home() {
             <li className="mb-2 tracking-[-.01em] text-white">
               You can read
               <span className="space-x-2">
-                <a
+                <Link
                   href="/projects"
                   className="underline text-[#36bd00] hover:text-[#2e9f00] px-1"
                 >
                   projects
-                </a>
+                </Link>
                 ,
-                <a
+                <Link
                   href="/blog"
                   className="underline text-[#36bd00] hover:text-[#2e9f00] px-1"
                 >
                   thoughts
-                </a>
+                </Link>
                 , and
-                <a
+                <Link
                   href="/how-to"
                   className="underline text-[#36bd00] hover:text-[#2e9f00] px-1"
                 >
                   how-tos
-                </a>
+                </Link>
                 .
               </span>
             </li>

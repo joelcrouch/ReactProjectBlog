@@ -111,6 +111,7 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
       content: contentHtml,
     };
   } catch (err) {
+    console.error("Failed to load post:", err);
     return null;
   }
 }
