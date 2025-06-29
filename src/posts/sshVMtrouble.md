@@ -1,3 +1,10 @@
+---
+title: "SSH Key-Based Authentication Troubleshooting"
+date: "2025-06-29"
+summary: "Errors i run into ALL THE TIME."
+---
+
+
 # SSH Key-Based Authentication Troubleshooting Log
 
 ## ✅ Goal
