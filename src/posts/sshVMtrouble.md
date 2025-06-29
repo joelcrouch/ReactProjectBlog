@@ -9,7 +9,7 @@ summary: "Errors i run into ALL THE TIME."
 
 ## ✅ Goal
 
-Set up **passwordless SSH access** using public key authentication from a host machine to a VM (`dev1@192.168.0.106`).
+Set up **passwordless SSH access** using public key authentication from a host machine to a VM (`dev1@<IPADRRESS`).
 
 ---
 
