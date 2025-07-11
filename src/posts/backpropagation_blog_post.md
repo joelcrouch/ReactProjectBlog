@@ -1,3 +1,10 @@
+---
+title: Understanding Backpropagation: A Deep Dive into Neural Network Learning
+date: 2025-07-10
+summary: Trying to understand the Rumerlhart paper
+---
+
+
 # Understanding Backpropagation: A Deep Dive into Neural Network Learning
 
 *Demystifying the foundational algorithm that powers modern AI*
