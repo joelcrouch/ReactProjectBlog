@@ -209,7 +209,7 @@ body {
   padding: 0;
   font-size: 16px;
   line-height: 1.5;
-  background-color: var(--background);
+  /* background-color: var(--background); */ /* Commented out to allow StarfieldBackground to show */
 }
 
 .title-section {
