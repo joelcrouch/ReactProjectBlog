@@ -65,7 +65,7 @@ export default function Home() {
               </span>
             </li>
             <li className="tracking-[-.01em] text-white">
-              Save and see your changes instantly.
+              I like to run, eat cookies, code and watch old Godzilla movies.
             </li>
           </ol>
           <div className="flex gap-4 items-start flex-col sm:flex-row mb-8">
