@@ -103,6 +103,9 @@ Looking further ahead, our architecture is designed to be extensible, with futur
 This first sprint has laid a robust groundwork. We've tackled the initial complexities of multi-cloud setup, and we're now poised to bring our distributed system to life across the cloud frontier.
 
 
-Is this just a fancy wrapper to watch and make sure data gets moved around the Internet, 'ensurng' delivery (Looking at you UDP/tcp), on the application layer of the Internet.  Well, yeah, but also it acts as an intelligent wrapper and orchestrator that operates at the application level.  It primarily watches for the state of the distributed system, and ensures data is moved reliably and efficiently according to the defined pipeline, even across different cloud environments.  
+Is this just a fancy wrapper to watch and make sure data gets moved around the Internet, 'ensuring' delivery (Looking at you UDP/TCP), on the application layer of the Internet.  Well, yeah, but also it acts as an intelligent wrapper and orchestrator that operates at the application level.  It primarily watches for the state of the distributed system, and ensures data is moved reliably and efficiently according to the defined pipeline, even across different cloud environments.  
+
+
 This will let ML researchers do what they do best.  Frog around on pytorch or tensorflow and mess about with fine tuning hyperparameters. 
+
 ---
