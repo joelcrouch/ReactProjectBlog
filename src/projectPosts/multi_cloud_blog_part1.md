@@ -1,3 +1,10 @@
+---
+title: "Building a Resilient Future: Our Journey into Multi-Cloud Distributed Systems"
+date: "2025-09-19"
+summary: "Can you deploy instances on different cloud providers?  What happens?"
+---
+
+
 # Building a Resilient Future: Our Journey into Multi-Cloud Distributed Systems (Part 1: Laying the Foundation)
 
 ## The Promise of the Cloud, Multiplied
