@@ -309,210 +309,26 @@ ol {
   animation: float 6s ease-in-out infinite;
 }
 
-/* @import "tailwindcss"; */
-
-/* Define the Thor Ragnarok color palette in custom CSS variables */
-/* :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --pocketStormGreen: #36bd00;
-  --pocketStormPurple: #5d2d7e;
-  --pocketStormYellow: #ffee4b;
-  --pocketStormTeal: #17dbcc;
-  --pocketStormRed: #d22020;
+/* Custom code styling */
+code {
+  @apply bg-gray-100 text-gray-800 px-1 py-0.5 rounded text-sm;
+  border: 1px solid #e5e5e5;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+pre {
+  @apply bg-gray-50 border border-gray-200 rounded-lg p-4 overflow-x-auto;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+pre code {
+  @apply bg-transparent border-none p-0;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-} */
-
-/* Define the ripple animation */
-/* @keyframes ripple {
-  0% {
-    transform: scale(0);
-    opacity: 0.8;
-  }
-  50% {
-    transform: scale(1);
-    opacity: 0.4;
-  }
-  100% {
-    transform: scale(2);
-    opacity: 0;
-  }
-} */
-
-/* Apply the ripple effect to elements */
-/* .ripple-background {
-  position: relative;
-  overflow: hidden;
-} */
-
-/* Import Tailwind CSS */
-/* @import "tailwindcss"; */
-
-/* Define the Thor Ragnarok color palette in custom CSS variables */
-/* :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --pocketStormGreen: #36bd00;
-  --pocketStormPurple: #5d2d7e;
-  --pocketStormYellow: #ffee4b;
-  --pocketStormTeal: #17dbcc;
-  --pocketStormRed: #d22020;
+/* Dark mode versions */
+.dark code {
+  @apply bg-gray-800 text-gray-200;
+  border-color: #374151;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.dark pre {
+  @apply bg-gray-900 border-gray-700;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-} */
-
-/* Define the ripple animation */
-/* @keyframes ripple {
-  0% {
-    transform: scale(0);
-    opacity: 0.8;
-  }
-  50% {
-    transform: scale(1);
-    opacity: 0.4;
-  }
-  100% {
-    transform: scale(2);
-    opacity: 0;
-  }
-} */
-
-/* Apply the ripple effect to elements */
-/* .ripple-background {
-  position: relative;
-  overflow: hidden;
-}
-
-.ripple-background::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 300%;
-  height: 300%;
-  background: linear-gradient(
-    45deg,
-    #36bd00,
-    #5d2d7e,
-    #ffee4b,
-    #17dbcc,
-    #d22020
-  );
-  background-size: 400% 400%;
-  animation: ripple 5s infinite, gradientAnimation 5s ease infinite;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  z-index: -1;
-} */
-
-/* Animation to smoothly shift the gradient colors */
-/* @keyframes gradientAnimation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-} */
-
-/* .ripple-background::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 300%;
-  height: 300%;
-  background: linear-gradient(
-    45deg,
-    #36bd00,
-    #5d2d7e,
-    #ffee4b,
-    #17dbcc,
-    #d22020
-  );
-  background-size: 400% 400%;
-  animation: ripple 3s infinite, gradientAnimation 5s ease infinite;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  z-index: -1;
-}
-
-/* Animation to smoothly shift the gradient colors */
-/* @keyframes gradientAnimation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-} */
-
-/* @import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-} */
