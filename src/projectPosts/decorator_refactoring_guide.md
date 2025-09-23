@@ -1,3 +1,11 @@
+---
+title: "The Decorator's Unexpected Guest: Refactoring, Circular Imports, and the Path to Clean Code"
+date: "2025-09-22"
+summary: "Trying to figure out how to make my soupy code less soupy "
+---
+
+
+
 # The Decorator's Unexpected Guest: Refactoring, Circular Imports, and the Path to Clean Code
 
 Refactoring is like tidying up before a party, it makes the house (or codebase) cleaner, easier to move around in, and more welcoming for future visitors. In Python, decorators often feel like the perfect guests to invite: they're polite, reusable, and know exactly how to wrap up repetitive logic.
