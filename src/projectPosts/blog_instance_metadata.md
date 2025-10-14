@@ -1,3 +1,9 @@
+---
+title: "WHY/How to use instance metadata for identification"
+date: "2025-10-13"
+summary: "Explaining IMDS "
+---
+
 # Unlocking Cloud Instance Self-Awareness: A Deep Dive into Instance Metadata Services (IMDS)
 
 ## Introduction
