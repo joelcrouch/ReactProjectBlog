@@ -104,13 +104,14 @@ Total                                1571     299      81%
 
 ### 2. **Basic Instrumentation Is Essential**
 - Added timing and logging from day one
-- Structured logs with context (stage, node, chunk) make debugging 10× faster
-- Don't need fancy dashboards yet — basic metrics and logs get you 80% there
+- Structured logs with context (stage, node, chunk) make debugging 10× fasterA
+- Adding even more logging features mght be even more useful for debugging, or use an even fancier dash(looking at you, Splunk),
+- Don't need fancy dashboards yet — basic metrics and logs get you 80% there.. Splunk might be useful here.  The free version is easily picked up, and the dashboards are pretty easy to make. 
 
 ### 3. **Distributed Coordination Is Hard**
 - Orchestrator took 3 rewrites to get stage transitions right
 - Error propagation across stages is tricky (when to retry vs fail?)
-- Queue management is powerful but requires careful tuning
+
 
 ### 4. **The Code Quality Shows In Tests**
 - Processing workers: 92% coverage (cleanest code)
@@ -203,7 +204,7 @@ Built the foundation that makes everything else possible:
 
 **The boring truth:** Sprint 2 was about getting all the pieces working together. Sprint 3 is where it gets interesting — when I start breaking things on purpose to see what happens.
 
-Full code and architecture details → [link to blog/repo]
+Full code and architecture details → [https://github.com/joelcrouch/MultiCLoudTestsingSystem]
 FYI: the repo is a bit of a mess right now, but I will clean that up as we progrees along.
 ---
 
