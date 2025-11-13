@@ -44,7 +44,7 @@ The project is hosted on GitHub, and you can get started by cloning the reposito
 You can find the repository and full setup instructions here: **[https://github.com/joelcrouch/EPIC_GUITAR_TAB_GENERATORLink ]**
 
 ## Example
-![Screenshot of the Epic Guitar application UI](./epic_guitar_ui.png "Epic Guitar App in action")
+![Screenshot of the Epic Guitar application UI](/images/epic_guitar_ui.png "Epic Guitar App in action")
 
 
 I did a example above.  The tool still generates tablature that is 'out of key' and is very sensitive.  The app picks up resonance from my acoustic guitar and 'hears' it even after the note is not being played anymore.  This is due to 2 issues: my acoustice guitar is not echoish, but resonancy, if that makes sense. It has a warm, vibrating sound. I like it, but in instances like this, is not too accurate.  The other reason is that this python library is very sensitive and i have not figured out yet how to dampen the 'sampling' rate.  Those are clearly not the correct technical verbiage, but that is fine. 
