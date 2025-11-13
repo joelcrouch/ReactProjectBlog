@@ -41,7 +41,7 @@ The magic happens in a three-step process that takes your raw audio and converts
 
 The project is hosted on GitHub, and you can get started by cloning the repository and setting up the environment. I've included a detailed `environment.yml` for Conda users to make installation a breeze.
 
-You can find the repository and full setup instructions here: **[Link to your GitHub Repository]**
+You can find the repository and full setup instructions here: **[https://github.com/joelcrouch/EPIC_GUITAR_TAB_GENERATORLink ]**
 
 ## Example
 ![Screenshot of the Epic Guitar application UI](./epic_guitar_ui.png "Epic Guitar App in action")
