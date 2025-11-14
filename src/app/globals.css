@@ -1,5 +1,6 @@
 /* Import Tailwind CSS */
 @import "tailwindcss";
+@import "prismjs/themes/prism-tomorrow.min.css";
 
 /* Define the Thor Ragnarok color palette in custom CSS variables */
 :root {
@@ -192,11 +193,7 @@ h6 {
   font-weight: bold;
 }
 
-code {
-  font-family: var(--font-mono);
-  background-color: var(--pocketStormGreen);
-  color: white;
-}
+
 
 a {
   color: var(--pocketStormTeal);
@@ -309,26 +306,4 @@ ol {
   animation: float 6s ease-in-out infinite;
 }
 
-/* Custom code styling */
-code {
-  @apply bg-gray-100 text-gray-800 px-1 py-0.5 rounded text-sm;
-  border: 1px solid #e5e5e5;
-}
 
-pre {
-  @apply bg-gray-50 border border-gray-200 rounded-lg p-4 overflow-x-auto;
-}
-
-pre code {
-  @apply bg-transparent border-none p-0;
-}
-
-/* Dark mode versions */
-.dark code {
-  @apply bg-gray-800 text-gray-200;
-  border-color: #374151;
-}
-
-.dark pre {
-  @apply bg-gray-900 border-gray-700;
-}

@@ -2,7 +2,16 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { remark } from "remark";
-import html from "remark-html";
+import remarkParse from "remark-parse";
+import remarkRehype from "remark-rehype";
+import rehypeStringify from "rehype-stringify";
+import rehypeSlug from "rehype-slug";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypePrismPlus from "rehype-prism-plus";
+import "prismjs";
+import "prismjs/components/prism-bash";
+import "prismjs/components/prism-typescript";
+import "prismjs/components/prism-ini";
 
 const postsDirectory = path.join(process.cwd(), "src/projectPosts");
 
@@ -21,7 +30,14 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
   try {
     const fileContents = fs.readFileSync(fullPath, "utf8");
     const { data, content } = matter(fileContents);
-    const processedContent = await remark().use(html).process(content);
+    const processedContent = await remark()
+      .use(remarkParse)
+      .use(remarkRehype)
+      .use(rehypeSlug)
+      .use(rehypeAutolinkHeadings, { behavior: "wrap" })
+      .use(rehypePrismPlus)
+      .use(rehypeStringify)
+      .process(content);
     const contentHtml = processedContent.toString();
 
     return {
