@@ -94,7 +94,7 @@ This allows passwordless login with a simple:
 ### ✅ Final Working Setup
 
     sshd_config on VM:
-```  etc/ssh/sshd_config
+```ini
 PermitRootLogin no
 PasswordAuthentication no
 PubkeyAuthentication yes
@@ -111,7 +111,7 @@ Verified with:
 ### 🔒 Optional Hardening
 
 Change default SSH port:
-```etc/ssh/sshd_config
+```ini
 Port 2222
 
 Restrict users:

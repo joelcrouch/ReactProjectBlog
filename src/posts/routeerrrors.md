@@ -35,7 +35,7 @@ type Props = {
 
 ## 2. Type Error: params missing Promise properties
 Error message
-```Type '{ params: { slug: string; }; }' is missing the following properties from type 'Promise<any>': then, catch, finally, [Symbol.toStringTag]
+```
 ```
 
 Cause
