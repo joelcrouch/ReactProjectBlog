@@ -1,8 +1,6 @@
 ---
 title: "Every Rose Has Its Thorn: Why My Model Thinks Tulips Are Roses"
 date: "2025-12-16"
-image: "/images/Slash-Snakepit-Credit-George-De-Sota-Liaison@2160x2700.jpg"
-tags: ["Machine Learning", "Python", "Computer Vision", "PostgreSQL"]
 summary: "Transitioning from building a framework to stress-testing it with 759 images and finding the 'thorns' in 79% accuracy."
 ---
 # Every rose has its thorn or is a tulip 
