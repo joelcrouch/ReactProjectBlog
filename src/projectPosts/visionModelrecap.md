@@ -982,3 +982,5 @@ These are exactly the right questions to ask, if I were a ML practitioner. This 
      scores.
 
   Duhh. I'm building a platform, not a ML Model, but i will return to this model and see if the platform can guide development.
+
+P.S.  There are so many typos in this.  My 5th grade teacher, Mrs. Lawson is going to have something to say about my proof-reading and follow-through on proof-reading.  I, on the other hand, will be eating cookies. 
