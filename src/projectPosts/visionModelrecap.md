@@ -929,13 +929,13 @@ generate_report.py: error: the following arguments are required: run_id
 
 ```
 
-![Run 6 Accuracy Report](../../public/images/run_6_accuracy_report.png)
+![Run 6 Accuracy Report](/images/run_6_accuracy_report.png)
 
 
 Cool. We can upload a bunch of queries and wvaluate a model simply. Now we are presented with some more interesting questions:
 Why isnt the model more accurate?  Do i need more data? Better labelling? Is it the image quality? How do i go back and look at the image that failed? Is it low light? Does my model think every pink flower is a rose?   
 
-![Different Colored Flowers](../../public/images/pink-flowers-tulips-dandelions-photo.jpg)
+![Different Colored Flowers](/images/pink-flowers-tulips-dandelions-photo.jpg)
 
 These are exactly the right questions to ask, if I were a ML practitioner. This is the core loop of machine learning practice:
   evaluate, analyze, and iterate. The framework is designed to help u answer these questions.
