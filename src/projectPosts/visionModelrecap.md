@@ -6,7 +6,7 @@ summary: "Transitioning from building a framework to stress-testing it with 759 
 # Every rose has its thorn or is a tulip 
 
 
-![Every Rose Has Its Thorn](../../public/images/Slash-Snakepit-Credit-George-De-Sota-Liaison@2160x2700.jpg)
+![Every Rose Has Its Thorn](/images/Slash-Snakepit-Credit-George-De-Sota-Liaison@2160x2700.jpg)
 
    
 So after getting the fastapi, database dialed in along with a simple python test and another simple matrix multiplication test of our evaluator, i decided that we need to have an actual ML model to run the platform against.  I know there are a couple well-known ml models that come packaged with pytorch/tensorflow or within books...flowers (i think both frameworks have a simple flower id model), there is a rent prediction model ( I think its in Sascke's (?), book 'scikti-learn with pytorch, or something like that).  Anyways i decide to use tensorflow 5 flower id model. Its relatively small (3600ish and 700 ish train/test split), so it wont take all day to train, and its allreay labelled. I'm not really trying to learn how to make a ML model, just test it easily, so we can leave the complex ML/AI models for later.  Find some other foundational model to train on, use llama/chat whatever. We will get there later. Anyways.
