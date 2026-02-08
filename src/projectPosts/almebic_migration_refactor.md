@@ -1,3 +1,19 @@
+---
+title: "Sprint 3: Fixing alembic-why my tests were super flaky."
+date: "2026-02-07"
+summary: "ONE SCHEMA AUTHORITY: ALEMBIC"
+---
+Flaky tests are one thing.
+Flaky tests that sometimes create database tables and sometimes don’t are another.
+
+This refactor started after I noticed a strange pattern: the same test suite would occasionally pass, occasionally fail, and occasionally fix itself when rerun. Locally it worked. In CI it didn’t. Alembic migrations claimed to run successfully, yet tables were mysteriously missing.
+
+What followed was a deep dive into Alembic, SQLAlchemy, and my own schema management assumptions. The root issue turned out not to be Docker, PostgreSQL, or CI—but having multiple competing ways to create database schema.
+
+This post documents how I refactored the project to make Alembic migrations the single source of truth, eliminated schema drift across environments, and turned a flaky test suite into a deterministic one.
+
+If you’ve ever dealt with “works on my machine” database behavior, this will probably feel familiar.
+ 
  # Making Alembic the Single Source of Truth: A Schema Management Refactor
 
  **Author:** ML Evaluation Framework Team
@@ -844,7 +860,7 @@ This was a real PITA to track down.  What was I thinking? Clearly, just test it 
  2. **Fixed Flaky Tests:** 100% test pass rate (up from 69%)
  3. **Improved Performance:** 33% faster test execution
  4. **Enhanced Developer Experience:** Clear, predictable database initialization
- 5. **Reduced Debugging Time:** No more "works on my machine" issues
+ 5. **Reduced Debugging Time:** No more "works on my machine" issues (HA!)
 
  ### Key Takeaway
 
@@ -852,6 +868,17 @@ This was a real PITA to track down.  What was I thinking? Clearly, just test it 
 
  When teams have multiple ways to initialize schemas, they will inevitably have schema drift. The solution is not better discipline—it's removing the incorrect paths entirely.
 
+This refactor reinforced a simple but powerful idea: database schema creation must be **boring**.
+
+Once Alembic became the only way tables were created—across dev, test, CI, and production—the system stopped behaving unpredictably. Tests became reliable, failures became meaningful, and setup became repeatable.
+
+The biggest lesson wasn’t about Alembic itself, but about removing alternative paths entirely. When multiple schema creation mechanisms exist, schema drift isn’t a possibility—it’s inevitable.
+
+Now, if something fails, it fails loudly and immediately. And that’s exactly what you want.
+
+No more ghost tables.
+No more mystery migrations.
+And thankfully—no more “works on my machine.”
  ---
 
  ## References
@@ -860,28 +887,6 @@ This was a real PITA to track down.  What was I thinking? Clearly, just test it 
  - [SQLAlchemy ORM Documentation](https://docs.sqlalchemy.org/en/20/orm/)
  - [Database Schema Migration Best Practices](https://www.atlassian.com/blog/software-teams/database-migrations)
 
- ---
-
- ## Appendix: File Change Summary
-
- | File | Status | Change Type | Lines Changed |
- |------|--------|-------------|---------------|
- | `scripts/init_db.py` | ✅ Created | New file | +89 |
- | `scripts/setup_db.py` | ⚠️ Deprecated | Modified | ~45 |
- | `scripts/seed_db.py` | ✅ Modified | Removed create_all | -1, +15 |
- | `migrations/env.py` | ✅ Fixed | Critical bug fix | ~10 |
- | `tests/conftest.py` | ✅ Fixed | Use Alembic | +15, -5 |
- | `tests/test_database/test_crud.py` | ✅ Fixed | Use Alembic | +18, -3 |
- | `tests/test_suite/conftest.py` | ✅ Fixed | Use Alembic | +12, -2 |
- | `.claude/projects/.../MEMORY.md` | ✅ Created | Documentation | +85 |
-
- **Total Impact:**
- - Files changed: 8
- - Lines added: ~234
- - Lines removed: ~56
- - Net change: +178 lines
- - Test pass rate: 69% → 100%
- - Test execution time: 9.43s → 6.33s
 
  ---
 
