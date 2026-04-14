@@ -270,7 +270,7 @@ After 1,800 evaluations across 18 strategies, here's what the data shows.
 
 
 **Semantic Similarity by Strategy**
-![Semantic Similarity by Strategy](semantic_similarity.png)
+![Semantic Similarity by Strategy](/images/semantic_similarity.png)
 
 
 exp-256-200 takes the top spot with a score of 0.7676, edging out exp-512-100 (0.7619) and strategy-a-500-50 (0.7569). A few things stand out:
@@ -280,7 +280,7 @@ Chunk size 512 is notably inconsistent: exp-512-100 finishes 2nd, but exp-512-50
 Larger chunks (2048) cluster in the middle of the pack — more context per chunk doesn't help, and in some cases hurts.
 
 **K-Value Exploration (exp-256-200)**
-![K-Value Exploration](k-exploration.png)
+![K-Value Exploration](/images/k-exploration.png)
 
 The bell curve is unmistakable. Scores climb steadily from K=3 through K=15, then collapse at K=20. That drop isn't gradual — it's a 13% fall in a single step, which tells us something important: past a certain threshold, additional context becomes noise, and the model's ability to reason over it degrades fast.
 

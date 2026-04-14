@@ -1,5 +1,6 @@
 /* Import Tailwind CSS */
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 @import "prismjs/themes/prism-tomorrow.min.css";
 
 /* Define the Thor Ragnarok color palette in custom CSS variables */

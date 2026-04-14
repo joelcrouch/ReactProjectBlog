@@ -21,19 +21,21 @@ export default async function PostPage(props: Props) {
   }
 
   return (
-    <div className="p-8 max-w-3xl mx-auto">
-      <h1 className="text-4xl font-bold mb-2">{post.title}</h1>
-      <p className="text-gray-500 mb-4">
-        {new Date(post.date).toLocaleDateString("en-US", {
-          year: "numeric",
-          month: "long",
-          day: "numeric",
-        })}
-      </p>
-      <article
-        className="prose"
-        dangerouslySetInnerHTML={{ __html: post.content }}
-      />
+    <div className="min-h-screen bg-black text-white p-8">
+      <div className="max-w-3xl mx-auto">
+        <h1 className="text-4xl font-bold mb-2">{post.title}</h1>
+        <p className="text-gray-400 mb-8">
+          {new Date(post.date).toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })}
+        </p>
+        <article
+          className="prose prose-invert max-w-none"
+          dangerouslySetInnerHTML={{ __html: post.content }}
+        />
+      </div>
     </div>
   );
-}
+  }
