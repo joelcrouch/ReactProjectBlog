@@ -229,8 +229,6 @@ docker exec -it ragops-postgres psql -U ragops -d ragops -c "SELECT metric_type,
 ------------------+-------
  K_EXPLORATION_K3 |     8
 (1 row)
-
-
 ```
 
 and like this:
